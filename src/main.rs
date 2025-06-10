@@ -2,6 +2,7 @@
 pub mod models;
 pub mod routes;
 pub mod database;
+pub mod repository;
 
 use actix_web::{App, HttpServer, web};
 

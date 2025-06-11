@@ -10,7 +10,7 @@ mod note;
 
 use actix_web::web;
 use user::register_user;
-use note::{create_note,  update_note, get_note, delete_note, get_all_notes};
+use note::{create_user_note,  update_user_note, get_note_noteid, delete_note_noteid, get_all_notes_db};
 
 
 
@@ -22,13 +22,13 @@ pub fn config(cfg: &mut web::ServiceConfig){
                     .route("", web::post().to(register_user))
                     .service(
                         web::scope("/note")
-                                    .route("", web::post().to(create_note))
-                                    .route("", web::put().to(update_note))
-                                    .route("", web::get().to(get_note))
-                                    .route("",web::delete().to(delete_note))
+                                    .route("", web::post().to(create_user_note))
+                                    .route("", web::put().to(update_user_note))
+                                    .route("/{note_id}", web::get().to(get_note_noteid))
+                                    .route("/{note_id}",web::delete().to(delete_note_noteid))
 
                     )
-                    .route("/notes", web::get().to(get_all_notes) )
+                    .route("/notes", web::get().to(get_all_notes_db) )
 
 
     );

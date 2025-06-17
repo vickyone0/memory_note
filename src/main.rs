@@ -4,6 +4,7 @@ pub mod routes;
 pub mod database;
 pub mod repository;
 pub mod auth;
+pub mod middleware;
 
 use actix_web::{App, HttpServer, web};
 
